@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Image Prediction</title>
+    <link rel="stylesheet" href="\static\style.css">
+</head>
+<body>
+
+<h1>PNEUMONIA DETECTION</h1>
+
+<div class="main">
+    <form id="uploadForm">
+        <input type="file" id="fileInput">
+
+        <!-- preview image -->
+        <img id="preview" style="display:none;" />
+
+        <button type="submit">Predict</button>
+    </form>
+
+    <p id="result"></p>
+</div>
+
+<script>
+
+document.getElementById("fileInput").addEventListener("change", function(e){
+    const file = e.target.files[0];
+    const preview = document.getElementById("preview");
+
+    document.getElementById("result").innerText = "";
+
+    if (file) {
+        preview.src = URL.createObjectURL(file);
+        preview.style.display = "block";
+    }
+});
+
+
+document.getElementById("uploadForm").addEventListener("submit", async function(e){
+    e.preventDefault();
+
+    let file = document.getElementById("fileInput").files[0];
+    let formData = new FormData();
+    formData.append("file", file);
+
+    let response = await fetch("/predict", {
+        method: "POST",
+        body: formData
+    });
+
+    let json = await response.json();
+    let conf = json.prob ?? 0;
+
+    document.getElementById("result").innerText =
+      `Prediction: ${json.class} | Confidence: ${(conf*100).toFixed(2)}%`;
+});
+</script>
+
+</body>
+</html>
