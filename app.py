@@ -49,7 +49,7 @@ def predict():
     img_bytes = file.read()
     img = Image.open(io.BytesIO(img_bytes)).convert("RGB")
 
-    result = make_prediction(model, img) # return {"class": ..., "prob":...}
+    result = make_prediction(model, img) # return {"class": ..., "prob":..., "heatmap":...}
 
     return jsonify(result)
 

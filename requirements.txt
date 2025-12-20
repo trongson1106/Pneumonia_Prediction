@@ -3,3 +3,5 @@ torchvision
 flask
 pillow
 huggingface_hub
+numpy
+matplotlib

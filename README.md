@@ -1,12 +1,12 @@
 
 
 
-# Pneumonia Prediction
+# PNEUMONIA PREDICTION
 
-Binary classification through X-ray captures, predicting Pneumonia
+Binary classification through X-ray captures.
 
 ### Demo:
-![Demo](demo/demo_image.png)
+![Demo](demo/demo_heat_map.png)
 
 ## Description
 
@@ -53,6 +53,7 @@ pip install -r requirements.txt
 python app.py
 ```
 The directory called _models_ will be created to store the model.
+Then there should be a link http://127.0.0.1:5000, click to try predicting.
 
 ## Dataset
 
@@ -146,7 +147,6 @@ project-name/
 ## Future Work
 
 - [ ] Implement additional architectures (EfficientNet, Vision Transformer)
-- [ ] Add heat map,...
 
 ## License
 
@@ -159,6 +159,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Contact
 
-Your Name - sonh29267@gmail.com
+Trong Son Hoang - sonh29267@gmail.com
 
 Project Link: [https://github.com/trongson1106/Pneumonia_Prediction](https://github.com/trongson1106/pneumonia_prediction)
